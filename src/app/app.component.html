@@ -1,1 +1,11 @@
-<router-outlet/>
+<div class="min-vh-100 d-flex flex-column">
+  <header>
+    <bh-navbar/>
+  </header>
+  <main class="flex-grow-1 d-flex flex-column position-relative" role="main">
+    <router-outlet/>
+  </main>
+  <footer>
+    <bh-footer/>
+  </footer>
+</div>

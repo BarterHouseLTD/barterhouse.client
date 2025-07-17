@@ -1,7 +1,40 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
+    "baseUrl": "./src",
     "outDir": "./dist/out-tsc",
+    "paths": {
+      "@barterhouse/environments": [
+        "environments/index.ts"
+      ],
+      "@barterhouse/pages/*": [
+        "app/pages/*"
+      ],
+      "@barterhouse/modals": [
+        "app/modals/index.ts"
+      ],
+      "@barterhouse/components": [
+        "app/components/index.ts"
+      ],
+      "@barterhouse/constants": [
+        "app/constants/index.ts"
+      ],
+      "@barterhouse/enumerations": [
+        "app/enumerations/index.ts"
+      ],
+      "@barterhouse/services/*": [
+        "app/services/*"
+      ],
+      "@barterhouse/services-models/*": [
+        "app/services-models/*"
+      ],
+      "@barterhouse/interceptors": [
+        "app/interceptors/index.ts"
+      ],
+      "@barterhouse/directives": [
+        "app/directives/index.ts"
+      ]
+    },
     "strict": true,
     "noImplicitOverride": true,
     "noPropertyAccessFromIndexSignature": true,

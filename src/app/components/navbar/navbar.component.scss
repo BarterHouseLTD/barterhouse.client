@@ -1,0 +1,12 @@
+.navbar-nav .nav-link {
+  color: var(--bs-white);
+  transition: 150ms;
+
+  &:hover {
+    color: var(--bs-warning);
+  }
+}
+
+.search-input {
+  min-width: 50%;
+}

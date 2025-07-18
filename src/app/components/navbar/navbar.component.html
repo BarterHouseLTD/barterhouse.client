@@ -1,1 +1,83 @@
-<p>navbar works!</p>
+<nav class="navbar navbar-expand-lg bg-dark" data-bs-theme="dark">
+  <div class="py-2 container-lg">
+    <a class="navbar-brand" [routerLink]="appRoutes.productList">
+      <h4 class="p-0 m-0 fw-bold text-warning">BarterHouse</h4>
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <form class="ms-auto me-lg-2 my-4 my-lg-0 d-flex search-input">
+        <input class="form-control rounded-start-pill border-warning border-2" data-bs-theme="light" type="search"
+               [placeholder]="selectedCulture === Culture.BG ? 'Търсене на продукти...' : 'Search for products...'">
+        <button class="btn btn-warning rounded-end-pill" type="submit">
+          <i class="ms-3 me-3 fa-solid fa-magnifying-glass"></i>
+        </button>
+      </form>
+      <ul class="navbar-nav">
+        <div class="d-block d-lg-none">
+          <ng-container [ngTemplateOutlet]="navItems"></ng-container>
+          <hr class="text-muted"/>
+        </div>
+        <li class="nav-item">
+          <a class="nav-link"
+             [routerLink]="[appRoutes.root, appRoutes.account, appRoutes.login]">
+            <i class="fa-solid fa-arrow-right-to-bracket"></i>
+            Вход
+          </a>
+        </li>
+        <li class="nav-item dropdown">
+          <button data-bs-toggle="dropdown"
+                  class="nav-link dropdown-toggle">
+            <i class="fa-solid fa-globe"></i>
+            {{ selectedCulture === Culture.BG ? 'BG' : 'EN' }}
+          </button>
+          <ul class="dropdown-menu dropdown-menu-end">
+            <li>
+              <button class="dropdown-item"
+                      (click)="onSelectCulture(Culture.BG)">
+                BG
+              </button>
+            </li>
+            <li>
+              <button class="dropdown-item"
+                      (click)="onSelectCulture(Culture.EN)">
+                EN
+              </button>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<section class="d-none d-lg-block bg-opacity-75 bg-dark border-top border-secondary shadow">
+  <div class="container-lg px-1">
+    <nav class="navbar navbar-expand-lg navbar-dark">
+      <ul class="navbar-nav flex-row gap-2 align-items-center">
+        <ng-container [ngTemplateOutlet]="navItems"></ng-container>
+      </ul>
+    </nav>
+  </div>
+</section>
+
+<ng-template #navItems>
+  <li class="nav-item">
+    <a class="nav-link"
+       [routerLink]="[appRoutes.root, appRoutes.productList]">
+      <i class="me-1 fas fa-home"></i>
+      {{ selectedCulture === Culture.BG ? 'Начало' : 'Home' }}
+    </a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link">
+      <i class="fas fa-box-open me-2"></i> Продукти
+    </a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link">
+      <i class="fas fa-envelope me-2"></i> Контакти
+    </a>
+  </li>
+</ng-template>

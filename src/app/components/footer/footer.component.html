@@ -1,3 +1,10 @@
 <div class="p-3 bg-dark text-white text-center">
-  <small>&copy; БАРТЕРНА КЪЩА ЕООД. Всички права запазени.</small>
+  <a class="text-decoration-none" [routerLink]="appRoutes.home">
+    <h4 class="p-0 m-0 fw-bold text-warning">BarterHouse</h4>
+  </a>
+  <hr>
+  <small>
+    &copy;
+    {{ selectedCulture === Culture.BG ? 'БАРТЕРНА КЪЩА ЕООД. Всички права запазени.' : 'BARTER HOUSE LTD. All rights reserved.' }}
+  </small>
 </div>

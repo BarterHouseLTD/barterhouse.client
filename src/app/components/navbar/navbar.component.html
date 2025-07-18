@@ -1,19 +1,35 @@
 <nav class="navbar navbar-expand-lg bg-dark" data-bs-theme="dark">
   <div class="py-2 container-lg">
-    <a class="navbar-brand" [routerLink]="appRoutes.productList">
+    <a class="navbar-brand"
+       [routerLink]="appRoutes.home"
+       (click)="isCollapsed = true">
       <h4 class="p-0 m-0 fw-bold text-warning">BarterHouse</h4>
     </a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <button class="navbar-toggler"
+            type="button"
+            (click)="collapse.toggle()">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <div class="collapse navbar-collapse" #collapse="ngbCollapse" [(ngbCollapse)]="isCollapsed">
       <form class="ms-auto me-lg-2 my-4 my-lg-0 d-flex search-input">
-        <input class="form-control rounded-start-pill border-warning border-2" data-bs-theme="light" type="search"
-               [placeholder]="selectedCulture === Culture.BG ? 'Търсене на продукти...' : 'Search for products...'">
-        <button class="btn btn-warning rounded-end-pill" type="submit">
+        <input
+          type="search"
+          data-bs-theme="light"
+          [(ngModel)]="searchValue"
+          [ngModelOptions]="{standalone: true}"
+          (keyup.enter)="searchButton.click()"
+          aria-label="Търсене"
+          aria-describedby="search-button"
+          class="form-control rounded-start-pill border-warning border-2"
+          [placeholder]="selectedCulture === Culture.BG ? 'Търсене на продукти...' : 'Search for products...'">
+        <a #searchButton
+           id="search-button"
+           aria-label="Търсене"
+           class="btn btn-warning rounded-end-pill"
+           [routerLink]="appRoutes.productList"
+           [queryParams]="!!searchValue ? {searchValue: searchValue} : null">
           <i class="ms-3 me-3 fa-solid fa-magnifying-glass"></i>
-        </button>
+        </a>
       </form>
       <ul class="navbar-nav">
         <div class="d-block d-lg-none">
@@ -22,9 +38,10 @@
         </div>
         <li class="nav-item">
           <a class="nav-link"
+             routerLinkActive="active"
+             (click)="isCollapsed = true"
              [routerLink]="[appRoutes.root, appRoutes.account, appRoutes.login]">
-            <i class="fa-solid fa-arrow-right-to-bracket"></i>
-            Вход
+            {{ selectedCulture === Culture.BG ? 'Вход' : 'Login' }}
           </a>
         </li>
         <li class="nav-item dropdown">
@@ -61,23 +78,33 @@
     </nav>
   </div>
 </section>
-
 <ng-template #navItems>
   <li class="nav-item">
     <a class="nav-link"
-       [routerLink]="[appRoutes.root, appRoutes.productList]">
+       routerLinkActive="active"
+       (click)="isCollapsed = true"
+       [routerLinkActiveOptions]="{ exact: true }"
+       [routerLink]="[appRoutes.home]">
       <i class="me-1 fas fa-home"></i>
       {{ selectedCulture === Culture.BG ? 'Начало' : 'Home' }}
     </a>
   </li>
   <li class="nav-item">
-    <a class="nav-link">
-      <i class="fas fa-box-open me-2"></i> Продукти
+    <a class="nav-link"
+       (click)="isCollapsed = true"
+       [class.active]="isProductRoutesActive()"
+       [routerLink]="[appRoutes.root, appRoutes.productList]">
+      <i class="me-1 fa-solid fa-list-ul"></i>
+      {{ selectedCulture === Culture.BG ? 'Продукти' : 'Products' }}
     </a>
   </li>
   <li class="nav-item">
-    <a class="nav-link">
-      <i class="fas fa-envelope me-2"></i> Контакти
+    <a class="nav-link"
+       routerLinkActive="active"
+       (click)="isCollapsed = true"
+       [routerLink]="[appRoutes.root, appRoutes.contactUs]">
+      <i class="me-1 fa-solid fa-envelope"></i>
+      {{ selectedCulture === Culture.BG ? 'Контакти' : 'Contacts' }}
     </a>
   </li>
 </ng-template>

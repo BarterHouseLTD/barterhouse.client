@@ -1,8 +1,10 @@
 export const appRoutes = {
   root: '/',
-  productList: '',
+  home: '',
+  productList: 'product-list',
   productDetail: 'product-detail',
   account: 'account',
   login: 'login',
+  contactUs: 'contact-us',
   notFound: 'not-found',
 }

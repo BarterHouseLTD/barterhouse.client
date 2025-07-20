@@ -33,6 +33,9 @@
       ],
       "@barterhouse/directives": [
         "app/directives/index.ts"
+      ],
+      "@barterhouse/pipes": [
+        "app/pipes/index.ts"
       ]
     },
     "strict": true,

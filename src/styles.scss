@@ -1,0 +1,22 @@
+body {
+  overflow-y: scroll;
+}
+
+.highlight {
+  display: inline;
+  color: var(--bs-dark);
+  background-color: var(--bs-warning);
+}
+
+.rotate-icon {
+  transition: transform 0.3s ease;
+}
+
+.rotated {
+  transform: rotate(180deg);
+}
+
+td.auto-width {
+  white-space: nowrap;
+  width: 1%;
+}

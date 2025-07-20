@@ -1,0 +1,36 @@
+<button type="button"
+        aria-controls="collapseExample"
+        [attr.aria-expanded]="isCollapsed"
+        (click)="isCollapsed = !isCollapsed"
+        class="mb-4 w-100 btn btn-light text-primary-emphasis border d-flex align-items-center justify-content-between">
+  <div class="fs-5 text-start">{{ categoryName }}</div>
+  <i class="ms-4 rotate-icon fa-solid fa-chevron-down"
+     [class.rotated]="!isCollapsed">
+  </i>
+</button>
+<div [(ngbCollapse)]="isCollapsed">
+  <div class="mb-4 ps-4 border-start">
+    <table class="table table-striped table-hover table-responsive  ">
+      <tbody>
+        @for (product of products; track product.productId; let index = $index) {
+          <tr class="align-middle">
+            <td class="text-muted auto-width">{{ index + 1 }}</td>
+            <td class="text-start">
+              <a class="ps-1 text-start btn btn-link text-decoration-none"
+                 [routerLink]="[appRoutes.root, appRoutes.productDetail, product.productId]">
+                <div [innerHTML]="product.productName | highlight:searchValue"></div>
+              </a>
+            </td>
+            <td class="text-end auto-width">
+              <button class="pe-1 btn btn-link text-decoration-none"
+                      (click)="getFile(product.productId)">
+                <i class="fa-solid fa-download"></i>
+                MSDS
+              </button>
+            </td>
+          </tr>
+        }
+      </tbody>
+    </table>
+  </div>
+</div>

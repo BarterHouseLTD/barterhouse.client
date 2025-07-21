@@ -66,7 +66,7 @@ export class ProductDetailsPageComponent implements OnInit, OnDestroy {
   }
 
   protected getFile(): void {
-
+    this.downloadTextFile('example.txt', 'MSDC файла.');
   }
 
   private getProductDetails(): void {
@@ -122,5 +122,17 @@ export class ProductDetailsPageComponent implements OnInit, OnDestroy {
         }
       });
     this.subs.add(subscription);
+  }
+
+  downloadTextFile(filename: string, content: string): void {
+    const blob = new Blob([content], { type: 'text/plain;charset=utf-8' });
+    const url = URL.createObjectURL(blob);
+
+    const link = document.createElement('a');
+    link.href = url;
+    link.download = filename;
+    link.click();
+
+    URL.revokeObjectURL(url); // почисти обекта след сваляне
   }
 }

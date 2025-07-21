@@ -1,1 +1,71 @@
-<p>contact-us-page works!</p>
+<section class="container-lg">
+  <div class="text-center">
+    <h1 class="my-4 my-lg-5 fw-bold text-muted text-center">
+      {{ selectedCulture === Culture.BG ? 'Свържи се с нас' : 'Contact us' }}
+    </h1>
+  </div>
+
+  <div class="row justify-content-center">
+    <div class="col-md-6 mb-4">
+      <div class="p-4 border rounded-4 bg-body-tertiary h-100 d-flex flex-column">
+        <h5 class="mb-3 fw-bold text-muted">
+          <i class="fa-solid fa-paper-plane me-2"></i>
+          {{ selectedCulture === Culture.BG ? 'Изпрати съобщение' : 'Send a message' }}
+        </h5>
+        <form>
+          <div class="mb-3">
+            <input type="text" class="form-control"
+                   placeholder="{{ selectedCulture === Culture.BG ? 'Вашето име' : 'Your Name' }}">
+          </div>
+          <div class="mb-3">
+            <input type="email" class="form-control"
+                   placeholder="{{ selectedCulture === Culture.BG ? 'Вашият имейл' : 'Your Email' }}">
+          </div>
+          <div class="mb-3">
+            <textarea class="form-control" rows="5"
+                      placeholder="{{ selectedCulture === Culture.BG ? 'Съобщение' : 'Message' }}"></textarea>
+          </div>
+        </form>
+        <button type="submit" class="mt-auto btn btn-warning text-secondary-emphasis">
+          {{ selectedCulture === Culture.BG ? 'Изпрати' : 'Send' }}
+        </button>
+      </div>
+    </div>
+
+    <div class="col-md-6 mb-4">
+      <div class="p-4 border rounded-4 bg-body-tertiary h-100">
+        <h5 class="fw-bold text-muted">
+          <i class="fa-solid fa-location-dot me-2"></i>
+          {{ selectedCulture === Culture.BG ? 'Адрес' : 'Address' }}
+        </h5>
+        <p class="text-muted mb-2">
+          {{
+            selectedCulture === Culture.BG
+              ? '1407 София, бул. Черни връх” 66, вх. В, ет. 1, ап. 3'
+              : '66 Cherni Vrah Blvd., Entrance B, Floor 1, Apt. 3, 1407 Sofia, Bulgaria'
+          }}
+        </p>
+        <h5 class="mt-4 fw-bold text-muted">
+          <i class="fa-solid fa-phone me-2"></i>
+          {{ selectedCulture === Culture.BG ? 'Телефони' : 'Phones' }}
+        </h5>
+        <p class="text-muted mb-1">0889 444 779</p>
+        <p class="text-muted mb-1">0885 991 890</p>
+        <p class="text-muted mb-3">0888 336 487</p>
+
+        <h5 class="mt-4 fw-bold text-muted">
+          <i class="fa-solid fa-envelope me-2"></i>
+          {{ selectedCulture === Culture.BG ? 'Имейл' : 'Email' }}
+        </h5>
+        <p class="text-muted mb-1">{{ 'office@fintech-bg.com' }}</p>
+        <h5 class="mt-4 fw-bold text-muted">
+          <i class="fa-solid fa-clock me-2"></i>
+          {{ selectedCulture === Culture.BG ? 'Работно време' : 'Working Hours' }}
+        </h5>
+        <p class="text-muted mb-0">
+          {{ selectedCulture === Culture.BG ? 'Понеделник – Петък 09:00 – 17:00' : 'Monday – Friday 09:00 – 17:00' }}
+        </p>
+      </div>
+    </div>
+  </div>
+</section>

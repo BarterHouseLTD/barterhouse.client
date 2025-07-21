@@ -1,119 +1,92 @@
-<!-- Главно съдържание със светъл фон -->
-<div class="bg-light text-dark">
+<section class="container-lg my-4">
+  <div class="text-center">
+    <h1 class="mt-4 mt-lg-5 fw-bold text-muted">
+      {{ selectedCulture === Culture.BG ? 'Добре дошли в BarterHouse' : 'Welcome to BarterHouse' }}
+    </h1>
+    <p class="text-center lead text-secondary">
+      {{
+        selectedCulture === Culture.BG
+          ? 'Вашият надежден партньор за инвестиции в злато и в други благородни метали!'
+          : 'Your reliable partner for investments in gold and other precious metals!'
+      }}
+    </p>
+    <a class="btn btn-warning mt-4 btn-lg text-secondary-emphasis"
+       [routerLink]="[appRoutes.root, appRoutes.productList]">
+      {{ selectedCulture === Culture.BG ? 'Разгледай продуктите' : 'View all products' }}
+    </a>
+  </div>
+</section>
 
-  <!-- Hero секция -->
-  <section class="text-center py-5 bg-white border-bottom">
-    <div class="container">
-      <h1 class="display-4 fw-bold text-warning">Добре дошли в BarterHouse</h1>
-      <p class="lead text-secondary mt-3">
-        Размени, купи или продай лесно и сигурно!
-      </p>
-      <a [routerLink]="['/', 'product-list']" class="btn btn-warning mt-4 px-5 py-2 fs-5">
-        Разгледай продукти
-      </a>
-    </div>
-  </section>
-
-  <!-- Предимства -->
-  <section class="py-5 bg-body">
-    <div class="container">
-      <div class="row text-center">
-        <div class="col-md-4 mb-4">
-          <i class="fa-solid fa-tags fa-2x text-warning mb-3"></i>
-          <h5 class="fw-bold">Безплатни обяви</h5>
-          <p class="text-muted">Публикувай продукти безплатно и достигни до хиляди хора.</p>
-        </div>
-        <div class="col-md-4 mb-4">
-          <i class="fa-solid fa-rotate fa-2x text-warning mb-3"></i>
-          <h5 class="fw-bold">Размени бързо</h5>
-          <p class="text-muted">Срещни се с други потребители или използвай куриер – ти избираш.</p>
-        </div>
-        <div class="col-md-4 mb-4">
-          <i class="fa-solid fa-user-shield fa-2x text-warning mb-3"></i>
-          <h5 class="fw-bold">Сигурност</h5>
-          <p class="text-muted">Рейтинги и обратна връзка за безопасно търгуване.</p>
-        </div>
+<section class="pt-5 my-5 bg-body-tertiary border">
+  <div class="container-lg">
+    <div class="row text-center">
+      <div class="col-md-4 mb-4">
+        <i class="fa-solid fa-scale-balanced fa-2x text-warning mb-3"></i>
+        <h5 class="fw-bold text-muted">
+          {{ selectedCulture === Culture.BG ? 'Търговия с метали' : 'Metals Trading' }}
+        </h5>
+        <p class="text-muted">
+          {{
+            selectedCulture === Culture.BG
+              ? 'Актуални борсови котировки за злато, сребро, платина, паладий и други редки метали.'
+              : 'Current stock quotes for gold, silver, platinum, palladium and other rare metals.'
+          }}
+        </p>
+      </div>
+      <div class="col-md-4 mb-4">
+        <i class="fa-solid fa-certificate fa-2x text-warning mb-3"></i>
+        <h5 class="fw-bold text-muted">
+          {{ selectedCulture === Culture.BG ? 'Партньор на NGC и PMG' : 'NGC & PMG Partner' }}
+        </h5>
+        <p class="text-muted">
+          {{
+            selectedCulture === Culture.BG
+              ? 'Оценка и сертифициране на монети и банкноти чрез водещите световни организации – NGC и PMG.'
+              : 'Evaluation and certification of coins and banknotes through the worlds leading organizations - NGC and PMG.'
+          }}
+        </p>
+      </div>
+      <div class="col-md-4 mb-4">
+        <i class="fa-solid fa-flask fa-2x text-warning mb-3"></i>
+        <h5 class="fw-bold text-muted">
+          {{ selectedCulture === Culture.BG ? 'Тестване на благородни метали' : 'Precious Metal Testing' }}
+        </h5>
+        <p class="text-muted">
+          {{
+            selectedCulture === Culture.BG
+              ? 'Компактното и професионално тестване на благородни метали с уред Olympus GoldXpert.'
+              : 'Compact and professional precious metal testing with the Olympus GoldXpert device.'
+          }}
+        </p>
       </div>
     </div>
-  </section>
-
-  <!-- Най-нови продукти -->
-  <section class="py-5 bg-white border-top">
-    <div class="container">
-      <h3 class="text-warning fw-bold mb-4">Най-нови продукти</h3>
-      <div class="row row-cols-1 row-cols-md-3 g-4">
-        <div class="col" *ngFor="let product of [1, 2, 3]">
-          <div class="card h-100 shadow-sm">
-            <img src="https://via.placeholder.com/300x200?text=Product+{{product}}" class="card-img-top" alt="Product">
-            <div class="card-body">
-              <h5 class="card-title text-dark">Продукт {{ product }}</h5>
-              <p class="card-text text-muted">Кратко описание на продукта, което привлича вниманието.</p>
-            </div>
-            <div class="card-footer bg-transparent border-top">
-              <a [routerLink]="['/product-detail', product]" class="btn btn-outline-warning w-100">Виж повече</a>
-            </div>
+  </div>
+</section>
+<section class="pb-5">
+  <div class="container-lg text-center">
+    <h3 class="text-muted fw-bold mb-5 text-center">
+      {{ selectedCulture === Culture.BG ? 'Последни новини' : 'Latest news' }}
+    </h3>
+    <div class="row justify-content-center">
+      @for (index of [1, 2, 3, 4, 5]; track index) {
+        <div class="col-md-4 mb-4">
+          <div class="border rounded-4 h-100 overflow-hidden">
+            <h6 class="py-3 fw-bold text-muted border-bottom bg-body-tertiary">
+              {{ selectedCulture === Culture.BG ? 'Следващо изпращане към NGC/PMG' : 'Next shipment to NGC/PMG' }}
+            </h6>
+            <p class="px-3 pb-0 text-muted">
+              {{
+                selectedCulture === Culture.BG
+                  ? 'Прием на монети и банкноти до 30.07.2025. Свържи се с нас за подробности.'
+                  : 'Accepting coins and banknotes until 30.07.2025. Contact us for details.'
+              }}
+            </p>
+            <button class="mb-2 btn btn-sm btn-warning text-secondary-emphasis">
+              {{ selectedCulture === Culture.BG ? 'Виж повече' : 'See more' }}
+            </button>
           </div>
         </div>
-      </div>
+      }
     </div>
-  </section>
-
-  <!-- Отзиви -->
-  <section class="bg-body-secondary py-5">
-    <div class="container">
-      <h3 class="text-warning fw-bold mb-4">Какво казват потребителите?</h3>
-      <div class="row">
-        <div class="col-md-4 mb-3">
-          <blockquote class="blockquote">
-            <p>"Размених стар лаптоп за смарт часовник – страхотно изживяване!"</p>
-            <footer class="blockquote-footer">Иван, Пловдив</footer>
-          </blockquote>
-        </div>
-        <div class="col-md-4 mb-3">
-          <blockquote class="blockquote">
-            <p>"Платформата е интуитивна и бърза. Получих оферта още същия ден."</p>
-            <footer class="blockquote-footer">Мария, София</footer>
-          </blockquote>
-        </div>
-        <div class="col-md-4 mb-3">
-          <blockquote class="blockquote">
-            <p>"С BarterHouse направих 3 успешни размени само за седмица!"</p>
-            <footer class="blockquote-footer">Георги, Варна</footer>
-          </blockquote>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Как работи -->
-  <section class="py-5 bg-white">
-    <div class="container">
-      <div class="row align-items-center">
-        <div class="col-md-6 mb-4 mb-md-0">
-          <h4 class="fw-bold text-warning">Как работи BarterHouse?</h4>
-          <ul class="list-unstyled mt-3 text-muted">
-            <li class="mb-2"><i class="fa-solid fa-circle-check text-warning me-2"></i>Регистрирай се безплатно</li>
-            <li class="mb-2"><i class="fa-solid fa-circle-check text-warning me-2"></i>Публикувай или предложи размяна</li>
-            <li class="mb-2"><i class="fa-solid fa-circle-check text-warning me-2"></i>Комуникирай безопасно</li>
-            <li class="mb-2"><i class="fa-solid fa-circle-check text-warning me-2"></i>Размени, продай или купи</li>
-          </ul>
-        </div>
-        <div class="col-md-6 text-center">
-          <img src="assets/images/how-it-works.svg" class="img-fluid" alt="Как работи">
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- CTA -->
-  <section class="text-center py-5 bg-body-tertiary border-top">
-    <div class="container">
-      <h4 class="fw-bold text-warning mb-3">Готов ли си да започнеш?</h4>
-      <p class="text-muted">Присъедини се към BarterHouse и започни да търгуваш още днес!</p>
-      <a [routerLink]="['/account/register']" class="btn btn-lg btn-warning px-4 py-2">
-        Създай профил
-      </a>
-    </div>
-  </section>
-
-</div>
+  </div>
+</section>

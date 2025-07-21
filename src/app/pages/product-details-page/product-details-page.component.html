@@ -1,1 +1,89 @@
-<p>product-details-page works!</p>
+<div class="mb-5 container-lg">
+  <a (click)="onBack()"
+     class="my-4 btn btn-light d-inline-flex align-items-center">
+    <i class="me-2 fa-solid fa-arrow-left"></i>
+    <span>Назад</span>
+  </a>
+  <h4 class="fw-bold text-muted">
+    Аскорбинова киселина E300
+  </h4>
+  <p class="text-muted mb-2">
+    <strong>Категория:</strong> Хранително-вкусови промишлености
+  </p>
+
+  <section class="my-4 shadow border bg-white rounded-3 overflow-hidden">
+    <header class="p-3 text-primary-emphasis d-flex align-items-center bg-light border-bottom">
+      <!--      <i class="me-2 fa-solid fa-bullhorn" aria-hidden="true"></i>-->
+      <h6 class="m-0">Описание</h6>
+    </header>
+    <main class="p-3">
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. A accusamus, alias aliquam aperiam aspernatur doloremque
+      dolorum fugiat maiores minima natus optio porro, possimus rem repellendus rerum soluta vel voluptas voluptates!
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. A accusamus, alias aliquam aperiam aspernatur doloremque
+      dolorum fugiat maiores minima natus optio porro, possimus rem repellendus rerum soluta vel voluptas voluptates!
+    </main>
+    <footer class="bg-light p-3 border-top text-end">
+      <button class="p-0 btn btn-link text-decoration-none"
+              (click)="getFile()">
+        <i class="fa-solid fa-download"></i>
+        MSDS
+      </button>
+    </footer>
+  </section>
+
+
+  <section class="my-4 shadow border bg-white rounded-3 overflow-hidden">
+    <header class="p-3 text-primary-emphasis d-flex align-items-center bg-light border-bottom">
+      <!--      <i class="me-2 fa-solid fa-bullhorn" aria-hidden="true"></i>-->
+      <h6 class="m-0">Сходни продукти</h6>
+    </header>
+
+    <ul class="m-0 list-unstyled">
+
+      <li class="table-hover-row">
+        <div class="p-3 d-flex justify-content-between border-bottom">
+          <a class="text-decoration-none"
+          [routerLink]="[appRoutes.root, appRoutes.productDetail, 123]">
+            <span>Сорбинова киселина E200</span>
+          </a>
+          <button class="p-0 btn btn-link text-decoration-none"
+                  (click)="getFile()">
+            <i class="fa-solid fa-download"></i>
+            MSDS
+          </button>
+        </div>
+      </li>
+
+      <li class="table-hover-row">
+        <div class="p-3 d-flex justify-content-between border-bottom">
+          <a class="text-decoration-none"
+             [routerLink]="[appRoutes.root, appRoutes.productDetail, 123]">
+            <span>Лимонена киселина E330</span>
+          </a>
+          <button class="p-0 btn btn-link text-decoration-none"
+                  (click)="getFile()">
+            <i class="fa-solid fa-download"></i>
+            MSDS
+          </button>
+        </div>
+      </li>
+
+      <li class="table-hover-row">
+        <div class="p-3 d-flex justify-content-between border-bottom">
+          <a class="text-decoration-none"
+             [routerLink]="[appRoutes.root, appRoutes.productDetail, 123]">
+            <span>Натриев бензоат E211</span>
+          </a>
+          <button class="p-0 btn btn-link text-decoration-none"
+                  (click)="getFile()">
+            <i class="fa-solid fa-download"></i>
+            MSDS
+          </button>
+        </div>
+      </li>
+
+    </ul>
+
+  </section>
+
+</div>

@@ -1,1 +1,119 @@
-<p>home-page works!</p>
+<!-- Главно съдържание със светъл фон -->
+<div class="bg-light text-dark">
+
+  <!-- Hero секция -->
+  <section class="text-center py-5 bg-white border-bottom">
+    <div class="container">
+      <h1 class="display-4 fw-bold text-warning">Добре дошли в BarterHouse</h1>
+      <p class="lead text-secondary mt-3">
+        Размени, купи или продай лесно и сигурно!
+      </p>
+      <a [routerLink]="['/', 'product-list']" class="btn btn-warning mt-4 px-5 py-2 fs-5">
+        Разгледай продукти
+      </a>
+    </div>
+  </section>
+
+  <!-- Предимства -->
+  <section class="py-5 bg-body">
+    <div class="container">
+      <div class="row text-center">
+        <div class="col-md-4 mb-4">
+          <i class="fa-solid fa-tags fa-2x text-warning mb-3"></i>
+          <h5 class="fw-bold">Безплатни обяви</h5>
+          <p class="text-muted">Публикувай продукти безплатно и достигни до хиляди хора.</p>
+        </div>
+        <div class="col-md-4 mb-4">
+          <i class="fa-solid fa-rotate fa-2x text-warning mb-3"></i>
+          <h5 class="fw-bold">Размени бързо</h5>
+          <p class="text-muted">Срещни се с други потребители или използвай куриер – ти избираш.</p>
+        </div>
+        <div class="col-md-4 mb-4">
+          <i class="fa-solid fa-user-shield fa-2x text-warning mb-3"></i>
+          <h5 class="fw-bold">Сигурност</h5>
+          <p class="text-muted">Рейтинги и обратна връзка за безопасно търгуване.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Най-нови продукти -->
+  <section class="py-5 bg-white border-top">
+    <div class="container">
+      <h3 class="text-warning fw-bold mb-4">Най-нови продукти</h3>
+      <div class="row row-cols-1 row-cols-md-3 g-4">
+        <div class="col" *ngFor="let product of [1, 2, 3]">
+          <div class="card h-100 shadow-sm">
+            <img src="https://via.placeholder.com/300x200?text=Product+{{product}}" class="card-img-top" alt="Product">
+            <div class="card-body">
+              <h5 class="card-title text-dark">Продукт {{ product }}</h5>
+              <p class="card-text text-muted">Кратко описание на продукта, което привлича вниманието.</p>
+            </div>
+            <div class="card-footer bg-transparent border-top">
+              <a [routerLink]="['/product-detail', product]" class="btn btn-outline-warning w-100">Виж повече</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Отзиви -->
+  <section class="bg-body-secondary py-5">
+    <div class="container">
+      <h3 class="text-warning fw-bold mb-4">Какво казват потребителите?</h3>
+      <div class="row">
+        <div class="col-md-4 mb-3">
+          <blockquote class="blockquote">
+            <p>"Размених стар лаптоп за смарт часовник – страхотно изживяване!"</p>
+            <footer class="blockquote-footer">Иван, Пловдив</footer>
+          </blockquote>
+        </div>
+        <div class="col-md-4 mb-3">
+          <blockquote class="blockquote">
+            <p>"Платформата е интуитивна и бърза. Получих оферта още същия ден."</p>
+            <footer class="blockquote-footer">Мария, София</footer>
+          </blockquote>
+        </div>
+        <div class="col-md-4 mb-3">
+          <blockquote class="blockquote">
+            <p>"С BarterHouse направих 3 успешни размени само за седмица!"</p>
+            <footer class="blockquote-footer">Георги, Варна</footer>
+          </blockquote>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Как работи -->
+  <section class="py-5 bg-white">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-md-6 mb-4 mb-md-0">
+          <h4 class="fw-bold text-warning">Как работи BarterHouse?</h4>
+          <ul class="list-unstyled mt-3 text-muted">
+            <li class="mb-2"><i class="fa-solid fa-circle-check text-warning me-2"></i>Регистрирай се безплатно</li>
+            <li class="mb-2"><i class="fa-solid fa-circle-check text-warning me-2"></i>Публикувай или предложи размяна</li>
+            <li class="mb-2"><i class="fa-solid fa-circle-check text-warning me-2"></i>Комуникирай безопасно</li>
+            <li class="mb-2"><i class="fa-solid fa-circle-check text-warning me-2"></i>Размени, продай или купи</li>
+          </ul>
+        </div>
+        <div class="col-md-6 text-center">
+          <img src="assets/images/how-it-works.svg" class="img-fluid" alt="Как работи">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="text-center py-5 bg-body-tertiary border-top">
+    <div class="container">
+      <h4 class="fw-bold text-warning mb-3">Готов ли си да започнеш?</h4>
+      <p class="text-muted">Присъедини се към BarterHouse и започни да търгуваш още днес!</p>
+      <a [routerLink]="['/account/register']" class="btn btn-lg btn-warning px-4 py-2">
+        Създай профил
+      </a>
+    </div>
+  </section>
+
+</div>
